@@ -21,14 +21,15 @@ to exit the Python program.
 
 ## Known issues
 - When the program is not running, the light with anode (+) connected to GPIO
-pin is slightly lit up because a small amount of current leaks through form 
-3.3v pin. (it's really hard to see unless you place the lights in really dark place)
+pin is slightly lit up, possibly because a small amount of current leaks from 
+the 3.3v pin. (it's really hard to see unless you place the lights in really 
+dark place)
 - The light with anode (+) connected to GPIO pin is slightly brighter than the 
-other one because of the current that leak from 3.3v pin. You can compare the 
-brightness by turning on both lights.
+other one possibly because a small amount of current leak from the 3.3v pin. 
+You can compare the brightness by turning on both lights.
 
 ### Possible fix
-- I don't know. Any suggestions will be welcome :)
+- I don't know :/
 
 ## Related links
 [EasyEDA project link](https://easyeda.com/darrenchang951/simepleCircuit-2db9573acd0b414a9f736e7b6b6cfdd0)
