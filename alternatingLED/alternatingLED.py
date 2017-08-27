@@ -53,7 +53,7 @@ def alternate_slowly():
     :return:
     """
 
-    switch_speed = 10
+    switch_speed = 2
     while key in ['s', 'S'] and not stop:
         if int(round(time.time())) % (switch_speed * 2) < switch_speed:
             GPIO.output(8, 0)
