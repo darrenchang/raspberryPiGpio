@@ -50,7 +50,7 @@ def alternate_slowly():
     alternate the lights slowly
     :return:
     """
-    while key == 's':
+    while key in ['s', 'S']:
         GPIO.output(8, 0)
         time.sleep(0.5)
         GPIO.output(8, 1)
