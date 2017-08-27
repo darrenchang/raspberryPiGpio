@@ -27,18 +27,18 @@ def wait_for_key_press():
 
 
 def one_light():
-    if key == 'r':
+    if key in ['r', 'R']:
             # print ("right light is on")
             GPIO.output(8, 1)
             # time.sleep(0.0001)
-    if key == 'l':
+    if key in ['l', 'L']:
             # print ("left light is on")
             GPIO.output(8, 0)
             # time.sleep(0.0001)
 
 
 def both_light():
-    while key == 'b':
+    while key in ['b', 'B']:
         GPIO.output(8, 0)
         time.sleep(0.0001)
         GPIO.output(8, 1)
