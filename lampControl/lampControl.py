@@ -10,18 +10,18 @@ GPIO.setup(8, GPIO.LOW)
 bd = BlueDot()
 
 
-def lamp_switch_on():
-    GPIO.output(8, 1)
-    print("turned on")
-
-def lamp_switch_off():
-    GPIO.output(8, 0)
-    print("turned off")
-
+def lamp_switch():
+    state = GPIO.input(8)
+    if state is 0:
+        GPIO.output(8, 1)
+        print("turned on")
+    else:
+        GPIO.output(8, 0)
+        print("turned off")
 
 try:
-    bd.when_pressed = lamp_switch_on
-    bd.when_released = lamp_switch_off
+    bd.when_pressed = lamp_switch
+
     pause()
 
 except KeyboardInterrupt:
