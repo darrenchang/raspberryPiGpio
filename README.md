@@ -1,12 +1,12 @@
 # Raspberry Pi GPIO
 Learning Raspberry Pi GPIO
 
-## GPIO
-### GPIO numbering
-![GPIO numbering](a-and-b-gpio-numbers.png)
+# GPIO
+## GPIO numbering
+![GPIO numbering](assets/a-and-b-gpio-numbers.png)
 It's good practice and most resources use this system.
-### Physical numbering
-![Physical numbering](a-and-b-physical-pin-numbers.png)
+## Physical numbering
+![Physical numbering](assets/a-and-b-physical-pin-numbers.png)
 Beginners may find the physical numbering system simpler -- 
 you simply count the pins.
 
