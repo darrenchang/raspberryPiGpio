@@ -3,13 +3,13 @@ Control two LEDs using only one GPIO pin.
 - When one LED is turned on, the other will be off.
 - Both LEDs can be on at the same time using multiplex.
 
-## How to use
+# How to use
 1. Prepare the circuit on a as shown below. (A bread board is recommended)<br>
 ![](https://easyeda.com/normal/alternatingLED-decf7f5ac7a64151aca0928aa86bf797)
 2. Execute [alternatingLED.py](alternatingLED.py) using "sudo". (root 
 permission is required to use GPIO on Raspberry Pi)
 
-### Controls
+## Controls
 - press "L" to switch on left light
 - press "R" to switch on right light
 - press "S" to switch the lights slowly <br>
@@ -19,7 +19,7 @@ each light is actually only turned on half of the time.)
 - press "control + C" one to exit key listener, and press "control + C" again 
 to exit the Python program.
 
-## Known issues
+# Known issues
 - When the program is not running, the light with anode (+) connected to GPIO
 pin is slightly lit up, possibly because a small amount of current leaks from 
 the 3.3v pin. (it's really hard to see unless you place the lights in really 
@@ -28,8 +28,8 @@ dark place)
 other one possibly because a small amount of current leak from the 3.3v pin. 
 You can compare the brightness by turning on both lights.
 
-### Possible fix
+## Possible fix
 - I don't know :/
 
-## Related links
+# Related links
 [EasyEDA project link](https://easyeda.com/darrenchang951/simepleCircuit-2db9573acd0b414a9f736e7b6b6cfdd0)
