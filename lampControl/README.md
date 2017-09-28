@@ -4,7 +4,7 @@ Turn on and off a 5V (5W) lamp using [Blue Dot](http://bluedot.readthedocs.io/)
 - when the dot is released, the lamp will be turned off
 
 ## How to use
-1. Prepare the circuit on a as shown below. (A bread board is recommended)
+1. Prepare the circuit on a as shown below. (A bread board is recommended)<br>
 ![](https://easyeda.com/thumbnail/Lamp_Remote_Switch-2baa493a78684549bfac874557bcf130) 
 2. Install [Blue Dot app](https://play.google.com/store/apps/details?id=com.stuffaboutcode.bluedot)
 on your Android device.
