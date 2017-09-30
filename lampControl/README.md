@@ -25,5 +25,5 @@ sudo python3 lampControl.py
 - release the blue dot to turn off the light 
 
 # Related links
-[EasyEDA project link](https://easyeda.com/Darren-Chang/Lamp_Remote_Switch-aba127b5ec6b46fb83a39d7437656e39)
+[EasyEDA project link](https://easyeda.com/Darren-Chang/Lamp_Remote_Switch-aba127b5ec6b46fb83a39d7437656e39) <br>
 [bluedot](http://bluedot.readthedocs.io/en/latest/gettingstarted.html)
