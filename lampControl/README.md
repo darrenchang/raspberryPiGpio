@@ -1,7 +1,5 @@
 # Lamp control
 Turn on and off a 5V (5W) lamp using [Blue Dot](http://bluedot.readthedocs.io/)
-- when the dot is pressed, the lamp will be turned on
-- when the dot is released, the lamp will be turned off
 
 # How to use
 1. Prepare the circuit on a as shown below. (A bread board is recommended)<br>
@@ -21,8 +19,7 @@ sudo python3 lampControl.py
 ```
 
 ## Controls
-- press and hold the blue dot on your phone to turn on the light
-- release the blue dot to turn off the light 
+- Toggle the lamp by tapping on the blue dot
 
 # Related links
 [EasyEDA project link](https://easyeda.com/Darren-Chang/Lamp_Remote_Switch-aba127b5ec6b46fb83a39d7437656e39) <br>
