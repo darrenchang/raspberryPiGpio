@@ -22,5 +22,5 @@ sudo python3 lampControl.py
 - Toggle the lamp by tapping on the blue dot
 
 # Related links
-[EasyEDA project link](https://easyeda.com/Darren-Chang/Lamp_Remote_Switch-aba127b5ec6b46fb83a39d7437656e39) <br>
-[bluedot](http://bluedot.readthedocs.io/en/latest/gettingstarted.html)
+- [EasyEDA project link](https://easyeda.com/Darren-Chang/Lamp_Remote_Switch-aba127b5ec6b46fb83a39d7437656e39) <br>
+- [bluedot](http://bluedot.readthedocs.io/en/latest/gettingstarted.html)
