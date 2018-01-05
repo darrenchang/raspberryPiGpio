@@ -28,6 +28,7 @@ def wait_for_key_press():
         stop = True
         print "A keyboard interrupt has been noticed"
 
+
 def one_light():
     if key in ['r', 'R']:
             # print ("right light is on")
