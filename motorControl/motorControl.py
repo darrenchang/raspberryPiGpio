@@ -1,15 +1,11 @@
-#RTK-000-001 Basis
-#Licensed under the GNU GPL V3 License
-#(C) Ryanteck LTD. 2014
-#Contributors: Ryan Walmsley, Michael Horne
-from time import sleep #We will need to sleep the code at points
-import RPi.GPIO as GPIO #Import the GPIO library as GPIO
+from time import sleep
+import RPi.GPIO as GPIO
+import _thread
+import click
 
-#Setup GPIO
-GPIO.setmode(GPIO.BCM) # Set the numbers to Broadcom Mode
-GPIO.setwarnings(False) # Ignore any errors
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
-#Assign variables to pins
 m1a = 17
 m1b = 18
 m2a = 22
@@ -20,39 +16,83 @@ GPIO.setup(m1b,GPIO.OUT) #Set 18 as output (Motor 1 B)
 GPIO.setup(m2a,GPIO.OUT) #Set 22 as output (Motor 2 A)
 GPIO.setup(m2b,GPIO.OUT) #Set 23 as output (Motor 2 B)
 
-#Make both motors go forwards
+key = ''
+stop = False
+
+
+def wait_for_key_press():
+    """
+    listen for keypress and assign the pressed key char to a variable
+    :return:
+    """
+
+    try:
+        while not stop:
+            global key
+            global stop
+            key = click.getchar()
+            print(key + " pressed")
+            if key is "q":
+                stop = True
+
+    except KeyboardInterrupt:
+        stop = True
+        print("A keyboard interrupt has been noticed")
+
+
 def forwards():
-        GPIO.output(m1a,1) # Motor 1 Forwards turn on
-        GPIO.output(m1b,0) # Motor 1 Backwards turn off
-        GPIO.output(m2a,1) # Motor 2 Forwards turn on
-        GPIO.output(m2b,0) # Motor 2 Backwards turn off
+    GPIO.output(m1a, 1)
+    GPIO.output(m1b, 0)
+    GPIO.output(m2a, 0)
+    GPIO.output(m2b, 1)
 
-##All off
-def stop():
-        GPIO.output(m1a,0) # Motor 1 Forwards turn off
-        GPIO.output(m1b,0) # Motor 1 Backwards turn off
-        GPIO.output(m2a,0) # Motor 2 Forwards turn off
-        GPIO.output(m2b,0) # Motor 2 Backwards turn off
 
-#Forever
+def backwards():
+        GPIO.output(m1a,0)
+        GPIO.output(m1b,1)
+        GPIO.output(m2a,1)
+        GPIO.output(m2b,0)
+
+
+def turn_right():
+    GPIO.output(m1a, 1)
+    GPIO.output(m1b, 0)
+    GPIO.output(m2a, 1)
+    GPIO.output(m2b, 0)
+
+
+def turn_left():
+    GPIO.output(m1a, 0)
+    GPIO.output(m1b, 1)
+    GPIO.output(m2a, 0)
+    GPIO.output(m2b, 1)
+
+
+def stop_motor():
+        GPIO.output(m1a,0)
+        GPIO.output(m1b,0)
+        GPIO.output(m2a,0)
+        GPIO.output(m2b,0)
+
 try:
-        while True:
-            #Turn motors forward
-            print "forwards"
+    # start a new thread to listen for keypress
+    _thread.start_new_thread(wait_for_key_press, ())
+
+    while not stop:
+        if key is "w":
             forwards()
-            #sleep for 1 second
-            sleep(10)
-            #Stop
-            print "stop"
-            stop()
-            #sleep 1 second
-            sleep(10)
+        if key is "s":
+            backwards()
+        if key is "d":
+            turn_right()
+        if key is "a":
+            turn_left()
+        if key is "e":
+            stop_motor()
+        sleep(0.01)
 
-except (KeyboardInterrupt):
-    print "A keyboard interrupt has been notitced"
-
-except:
-    print "An error or exception has occured!"
+except KeyboardInterrupt:
+    print("A keyboard interrupt has been noticed")
 
 finally:
     GPIO.cleanup()
