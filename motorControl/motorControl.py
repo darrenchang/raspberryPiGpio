@@ -17,7 +17,9 @@ GPIO.setup(m2a,GPIO.OUT) #Set 22 as output (Motor 2 A)
 GPIO.setup(m2b,GPIO.OUT) #Set 23 as output (Motor 2 B)
 
 key = ''
+prev_key = ''
 stop = False
+interval = 0
 
 
 def wait_for_key_press():
@@ -48,10 +50,10 @@ def forwards():
 
 
 def backwards():
-        GPIO.output(m1a,0)
-        GPIO.output(m1b,1)
-        GPIO.output(m2a,1)
-        GPIO.output(m2b,0)
+    GPIO.output(m1a,0)
+    GPIO.output(m1b,1)
+    GPIO.output(m2a,1)
+    GPIO.output(m2b,0)
 
 
 def turn_right():
@@ -69,27 +71,39 @@ def turn_left():
 
 
 def stop_motor():
-        GPIO.output(m1a,0)
-        GPIO.output(m1b,0)
-        GPIO.output(m2a,0)
-        GPIO.output(m2b,0)
+    GPIO.output(m1a,0)
+    GPIO.output(m1b,0)
+    GPIO.output(m2a,0)
+    GPIO.output(m2b,0)
 
 try:
     # start a new thread to listen for keypress
     _thread.start_new_thread(wait_for_key_press, ())
 
     while not stop:
-        if key is "w":
+        if key is 'w':
             forwards()
-        if key is "s":
+        elif key is 's':
             backwards()
-        if key is "d":
+        elif key is 'd':
             turn_right()
-        if key is "a":
+        elif key is 'a':
             turn_left()
-        if key is "e":
+        elif key is 'e':
             stop_motor()
+
+        # set speed
+        if key is '1':
+            print(prev_key)
+            interval = 0
+        elif key is '2':
+            interval = 0.01
+
         sleep(0.01)
+
+        if interval != 0:
+            stop_motor()
+            sleep(interval)
 
 except KeyboardInterrupt:
     print("A keyboard interrupt has been noticed")
